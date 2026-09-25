@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Literata:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-
+ 
   body {
     font-family: "Literata", Georgia, serif;
     max-width: 1400px;
@@ -19,21 +19,21 @@
     line-height: 1.65;
     background: #ffffff;
   }
-
+ 
   .encabezado {
     display: flex;
     align-items: flex-start;
     gap: 14px;
     margin-bottom: 4px;
   }
-
+ 
   .encabezado .icono {
     font-size: 3.4rem;
     line-height: 1;
     margin-top: 14px;
     transform: rotate(-6deg);
   }
-
+ 
   h1 {
     font-family: "Caveat", cursive;
     font-weight: 700;
@@ -42,64 +42,87 @@
     color: #7a3b2e;
     line-height: 1;
   }
-
+ 
   .subrayado {
     width: 340px;
+    max-width: 100%;
     height: 10px;
     margin: 8px 0 26px 74px;
   }
-
+ 
   .subtitulo {
     color: #6b6259;
     font-style: italic;
     font-size: 1.5rem;
     margin: 0 0 2.5em;
   }
-
+ 
   .intro {
+    max-width: 1000px;
     margin-bottom: 3.5em;
     font-size: 1.35rem;
   }
-
-  .separador {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 3.5em 0 1.5em;
-    color: #b6a89c;
-    font-size: 1.4rem;
-    font-family: "Literata", Georgia, serif;
-    font-style: italic;
-  }
-
-  .separador::before,
-  .separador::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #e4dcd3;
-  }
-
+ 
+  /* Cada gráfico: pregunta + texto de lectura + visualización */
   .viz-section {
-    margin-bottom: 2em;
+    max-width: 1000px;
+    margin: 0 auto 5em;
+    padding-top: 2.5em;
+    border-top: 1px solid #e4dcd3;
   }
-
+ 
+  .viz-section h2 {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: #7a3b2e;
+    margin: 0 0 0.4em;
+  }
+ 
+  .lectura {
+    font-size: 1.15rem;
+    color: #4a423b;
+    max-width: 70ch;
+    margin: 0 0 1.6em;
+  }
+ 
   .viz-section img {
     width: 100%;
     height: auto;
     display: block;
   }
-
-  .viz-wrapper {
+ 
+  .viz-section iframe {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+ 
+  /* Recuadro provisorio: borrarlo cuando pegues el embed */
+  .pendiente {
+    border: 2px dashed #d8cec3;
+    border-radius: 6px;
+    padding: 3em 1.5em;
+    text-align: center;
+    color: #948a7e;
+    font-style: italic;
+  }
+ 
+  .cierre {
     max-width: 1000px;
     margin: 0 auto;
+    font-size: 1.25rem;
   }
-
-  .viz-wrapper-dw {
-    max-width: 700px;
-    margin: 0 auto;
+ 
+  .cierre h2 {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #7a3b2e;
+    margin: 0 0 0.3em;
   }
-
+ 
   footer {
     margin-top: 5em;
     padding-top: 1.2em;
@@ -109,10 +132,17 @@
     font-family: "Literata", Georgia, serif;
     text-align: center;
   }
+ 
+  @media (max-width: 640px) {
+    body { padding: 36px 18px 60px; }
+    h1 { font-size: 3.6rem; }
+    .subrayado { margin-left: 0; }
+    .viz-section h2, .cierre h2 { font-size: 2.2rem; }
+  }
 </style>
 </head>
 <body>
-
+ 
   <div class="encabezado">
     <span class="icono">📖</span>
     <h1>Diario de una lectora</h1>
@@ -120,36 +150,94 @@
   <svg class="subrayado" viewBox="0 0 340 10" xmlns="http://www.w3.org/2000/svg">
     <path d="M2 6 C 80 1, 160 10, 240 5 S 320 1, 338 6" stroke="#c98a63" stroke-width="4" fill="none" stroke-linecap="round"/>
   </svg>
-  <p class="subtitulo">Una exploración visual de mis hábitos de lectura, inspirada en Dear Data</p>
-
+  <p class="subtitulo">Una exploración visual de mis hábitos de lectura.</p>
+ 
   <div class="intro">
     <p>
-      Para este trabajo, decidí explorar mis propios datos de lectura: los libros que leí,
-      sus géneros, autores y puntuaciones. A partir de estos datos armé estas visualizaciones
-      que cuentan, cada una a su manera, una parte de esta historia.
+      Para este trabajo, decidí explorar mis propios datos de lectura: una selección de
+      algunos de los libros que leí entre 2019 y 2026, con sus géneros, autores, países y puntuaciones. A partir de estos datos
+      armé estas visualizaciones que cuentan, cada una a su manera, una parte de esta historia:
+      qué leo, a quiénes leo, de dónde vienen y qué es lo que más disfruto.
     </p>
   </div>
-
-  <div class="separador">primera entrada</div>
-
-  <div class="viz-section">
-    <div class="viz-wrapper-dw">
-      <iframe title="¿Qué autores dominan mis géneros favoritos?" aria-label="Stacked Bars" id="datawrapper-chart-aoAe1" src="https://datawrapper.dwcdn.net/aoAe1/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="428" data-external="1"></iframe>
-      <script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
-    </div>
+ 
+  <!-- ============ 1. QUÉ LEO: géneros en el tiempo ============ -->
+  <section class="viz-section">
+    <h2>¿Cómo cambiaron mis géneros leídos a lo largo de los años?</h2>
+    <p class="lectura">
+      Empecé con la distopía juvenil de <em>The Hunger Games</em>, y desde 2022 el misterio se
+      volvió una constante. En 2023 aparece fuerte la romance contemporánea y en 2025, el año
+      con más libros de esta selección, se suma el thriller psicológico. En 2021 la curva baja porque ese año leí
+      clásicos que quedan fuera de los géneros principales.
+    </p>
+    <img src="tpvis.svg" alt="Streamgraph de los géneros que leí por año, entre 2019 y 2026">
+  </section>
+ 
+  <!-- ============ 2. A QUIÉNES LEO: autores y géneros ============ -->
+  <section class="viz-section">
+    <h2>¿Qué autores dominan mis géneros favoritos?</h2>
+    <p class="lectura">
+      Unas pocas autoras aparecen una y otra vez: Colleen Hoover en la romance,
+      Karen M. McManus y Holly Jackson en el misterio juvenil, Suzanne Collins en la distopía.
+    </p>
+    <!-- Cuando tengas la nueva versión, reemplazá este iframe por el embed nuevo -->
+    <iframe title="¿Qué autores dominan mis géneros favoritos?" aria-label="Gráfico de autores por género" id="datawrapper-chart-aoAe1" src="https://datawrapper.dwcdn.net/aoAe1/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="428" data-external="1"></iframe>
+    <script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+  </section>
+ 
+  <!-- ============ 3. DE DÓNDE VIENEN: mapa ============ -->
+  <section class="viz-section">
+    <h2>¿De dónde vienen los autores que leo?</h2>
+    <p class="lectura">
+      Casi dos de cada tres libros de esta selección son de autores estadounidenses, y otros seis son
+      británicos. Mi lectura es muy anglosajona, algo que tiene sentido porque leo casi todo
+      en inglés. Los pocos autores de otros países (Colombia, Grecia, Austria) aparecen sobre
+      todo en lecturas en español o de la facultad.
+    </p>
+    <!-- PEGÁ ACÁ EL EMBED DEL MAPA y borrá el div de abajo -->
+    <div class="pendiente">Acá va el mapa</div>
+  </section>
+ 
+  <!-- ============ 4. AUTORES A LO LARGO DEL TIEMPO ============ -->
+  <section class="viz-section">
+    <h2>¿Qué autores leí más a lo largo de los años?</h2>
+    <p class="lectura">
+      <!-- Escribí acá la conclusión cuando tengas el gráfico -->
+    </p>
+    <!-- PEGÁ ACÁ EL EMBED DEL CUARTO GRÁFICO y borrá el div de abajo -->
+    <div class="pendiente">Acá va el bar chart race</div>
+  </section>
+ 
+  <!-- ============ 5. QUINTO GRÁFICO ============ -->
+  <section class="viz-section">
+    <h2>¿Las sagas me enganchan más que los libros sueltos?</h2>
+    <p class="lectura">
+      <!-- Escribí acá la conclusión cuando tengas el gráfico -->
+    </p>
+    <!-- PEGÁ ACÁ EL EMBED DEL QUINTO GRÁFICO y borrá el div de abajo -->
+    <div class="pendiente">Acá va el quinto gráfico</div>
+  </section>
+ 
+  <!-- ============ 6. SEXTO GRÁFICO ============ -->
+  <section class="viz-section">
+    <h2>¿Me gustan más los libros nuevos o los clásicos?</h2>
+    <p class="lectura">
+      <!-- Escribí acá la conclusión cuando tengas el gráfico -->
+    </p>
+    <!-- PEGÁ ACÁ EL EMBED DEL SEXTO GRÁFICO y borrá el div de abajo -->
+    <div class="pendiente">Acá va el sexto gráfico</div>
+  </section>
+ 
+  <div class="cierre">
+    <h2>Lo que aprendí de mis datos</h2>
+    <p>
+      <!-- Escribí acá 2 o 3 frases de conclusión general -->
+    </p>
   </div>
-
-  <div class="separador">segunda entrada</div>
-
-  <div class="viz-section">
-    <div class="viz-wrapper">
-      <img src="tpvis.svg" alt="¿Cómo cambiaron mis géneros leídos a lo largo de los años? - Streamgraph de géneros de lectura por año">
-    </div>
-  </div>
-
+ 
   <footer>
-    Trabajo práctico — Visualización de la Información · Pilar Tremouilles
+    Trabajo práctico de Visualización de la Información, Pilar Tremouilles
   </footer>
-
+ 
 </body>
 </html>
