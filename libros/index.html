@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Literata:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
- 
+
   body {
     font-family: "Literata", Georgia, serif;
     max-width: 1400px;
@@ -19,21 +19,21 @@
     line-height: 1.65;
     background: #ffffff;
   }
- 
+
   .encabezado {
     display: flex;
     align-items: flex-start;
     gap: 14px;
     margin-bottom: 4px;
   }
- 
+
   .encabezado .icono {
     font-size: 3.4rem;
     line-height: 1;
     margin-top: 14px;
     transform: rotate(-6deg);
   }
- 
+
   h1 {
     font-family: "Caveat", cursive;
     font-weight: 700;
@@ -42,27 +42,27 @@
     color: #7a3b2e;
     line-height: 1;
   }
- 
+
   .subrayado {
     width: 340px;
     max-width: 100%;
     height: 10px;
     margin: 8px 0 26px 74px;
   }
- 
+
   .subtitulo {
     color: #6b6259;
     font-style: italic;
     font-size: 1.5rem;
     margin: 0 0 2.5em;
   }
- 
+
   .intro {
     max-width: 1000px;
     margin-bottom: 3.5em;
     font-size: 1.35rem;
   }
- 
+
   /* Cada gráfico: pregunta + texto de lectura + visualización */
   .viz-section {
     max-width: 1000px;
@@ -70,7 +70,7 @@
     padding-top: 2.5em;
     border-top: 1px solid #e4dcd3;
   }
- 
+
   .viz-section h2 {
     font-family: "Caveat", cursive;
     font-weight: 700;
@@ -79,26 +79,26 @@
     color: #7a3b2e;
     margin: 0 0 0.4em;
   }
- 
+
   .lectura {
     font-size: 1.15rem;
     color: #4a423b;
     max-width: 70ch;
     margin: 0 0 1.6em;
   }
- 
+
   .viz-section img {
     width: 100%;
     height: auto;
     display: block;
   }
- 
+
   .viz-section iframe {
     width: 100%;
     border: none;
     display: block;
   }
- 
+
   /* Recuadro provisorio: borrarlo cuando pegues el embed */
   .pendiente {
     border: 2px dashed #d8cec3;
@@ -108,13 +108,13 @@
     color: #948a7e;
     font-style: italic;
   }
- 
+
   .cierre {
     max-width: 1000px;
     margin: 0 auto;
     font-size: 1.25rem;
   }
- 
+
   .cierre h2 {
     font-family: "Caveat", cursive;
     font-weight: 700;
@@ -122,7 +122,7 @@
     color: #7a3b2e;
     margin: 0 0 0.3em;
   }
- 
+
   footer {
     margin-top: 5em;
     padding-top: 1.2em;
@@ -132,7 +132,7 @@
     font-family: "Literata", Georgia, serif;
     text-align: center;
   }
- 
+
   @media (max-width: 640px) {
     body { padding: 36px 18px 60px; }
     h1 { font-size: 3.6rem; }
@@ -142,7 +142,7 @@
 </style>
 </head>
 <body>
- 
+
   <div class="encabezado">
     <span class="icono">📖</span>
     <h1>Diario de una lectora</h1>
@@ -151,7 +151,7 @@
     <path d="M2 6 C 80 1, 160 10, 240 5 S 320 1, 338 6" stroke="#c98a63" stroke-width="4" fill="none" stroke-linecap="round"/>
   </svg>
   <p class="subtitulo">Una exploración visual de mis hábitos de lectura.</p>
- 
+
   <div class="intro">
     <p>
       Para este trabajo, decidí explorar mis propios datos de lectura: una selección de
@@ -160,7 +160,7 @@
       qué leo, a quiénes leo, de dónde vienen y qué es lo que más disfruto.
     </p>
   </div>
- 
+
   <!-- ============ 1. QUÉ LEO: géneros en el tiempo ============ -->
   <section class="viz-section">
     <h2>¿Cómo cambiaron mis géneros leídos a lo largo de los años?</h2>
@@ -172,7 +172,7 @@
     </p>
     <img src="tpvis.svg" alt="Streamgraph de los géneros que leí por año, entre 2019 y 2026">
   </section>
- 
+
   <!-- ============ 2. A QUIÉNES LEO: autores y géneros ============ -->
   <section class="viz-section">
     <h2>¿Qué autores dominan mis géneros favoritos?</h2>
@@ -180,11 +180,9 @@
       Unas pocas autoras aparecen una y otra vez: Colleen Hoover en la romance,
       Karen M. McManus y Holly Jackson en el misterio juvenil, Suzanne Collins en la distopía.
     </p>
-    <!-- Cuando tengas la nueva versión, reemplazá este iframe por el embed nuevo -->
-    <iframe title="¿Qué autores dominan mis géneros favoritos?" aria-label="Gráfico de autores por género" id="datawrapper-chart-aoAe1" src="https://datawrapper.dwcdn.net/aoAe1/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="428" data-external="1"></iframe>
-    <script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+    <img src="alluvial.svg" alt="Diagrama alluvial que conecta a mis autores más leídos con sus géneros">
   </section>
- 
+
   <!-- ============ 3. DE DÓNDE VIENEN: mapa ============ -->
   <section class="viz-section">
     <h2>¿De dónde vienen los autores que leo?</h2>
@@ -197,7 +195,7 @@
     <!-- PEGÁ ACÁ EL EMBED DEL MAPA y borrá el div de abajo -->
     <div class="pendiente">Acá va el mapa</div>
   </section>
- 
+
   <!-- ============ 4. AUTORES A LO LARGO DEL TIEMPO ============ -->
   <section class="viz-section">
     <h2>¿Qué autores leí más a lo largo de los años?</h2>
@@ -207,7 +205,7 @@
     <!-- PEGÁ ACÁ EL EMBED DEL CUARTO GRÁFICO y borrá el div de abajo -->
     <div class="pendiente">Acá va el bar chart race</div>
   </section>
- 
+
   <!-- ============ 5. QUINTO GRÁFICO ============ -->
   <section class="viz-section">
     <h2>¿Las sagas me enganchan más que los libros sueltos?</h2>
@@ -217,7 +215,7 @@
     <!-- PEGÁ ACÁ EL EMBED DEL QUINTO GRÁFICO y borrá el div de abajo -->
     <div class="pendiente">Acá va el quinto gráfico</div>
   </section>
- 
+
   <!-- ============ 6. SEXTO GRÁFICO ============ -->
   <section class="viz-section">
     <h2>¿Me gustan más los libros nuevos o los clásicos?</h2>
@@ -227,17 +225,17 @@
     <!-- PEGÁ ACÁ EL EMBED DEL SEXTO GRÁFICO y borrá el div de abajo -->
     <div class="pendiente">Acá va el sexto gráfico</div>
   </section>
- 
+
   <div class="cierre">
     <h2>Lo que aprendí de mis datos</h2>
     <p>
       <!-- Escribí acá 2 o 3 frases de conclusión general -->
     </p>
   </div>
- 
+
   <footer>
     Trabajo práctico de Visualización de la Información, Pilar Tremouilles
   </footer>
- 
+
 </body>
 </html>
